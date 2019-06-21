@@ -91,12 +91,11 @@ public class Logic {
         } else {
             throw new Exception("Please select a valid account type");
         }
-        this.ACCOUNTS.add(a);
-        this.nextAccountId++;
-        
         if (!accountType.equals("Student") || (accountType.equals("Student") && initialDeposit != 0)) {
             this.createTransaction(a, initialDeposit, "Initial Deposit", "Initial Deposit in our bank");
         } 
+        this.ACCOUNTS.add(a);
+        this.nextAccountId++;
         return a;
     }
     

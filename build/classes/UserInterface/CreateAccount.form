@@ -28,12 +28,22 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lblHeadline" alignment="1" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="lblAccountID" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="lblAccountType" alignment="0" pref="150" max="32767" attributes="0"/>
+                          <Component id="lblAccountID" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblOwner" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblInitialSum" max="32767" attributes="0"/>
+                      </Group>
                       <EmptySpace type="separate" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnCreate" pref="150" max="32767" attributes="0"/>
+                          <Component id="txfInitialSum" max="32767" attributes="0"/>
+                          <Component id="radioStudent" max="32767" attributes="0"/>
+                          <Component id="radioSavings" max="32767" attributes="0"/>
+                          <Component id="btnCreate" max="32767" attributes="0"/>
                           <Component id="txfCustomerID" max="32767" attributes="0"/>
+                          <Component id="txfOwner" max="32767" attributes="0"/>
+                          <Component id="radioStandard" alignment="0" pref="150" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -51,7 +61,26 @@
                   <Component id="lblAccountID" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txfCustomerID" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="296" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblOwner" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txfOwner" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblAccountType" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="radioStandard" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="radioSavings" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="radioStudent" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txfInitialSum" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblInitialSum" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="32767" attributes="0"/>
               <Component id="btnCreate" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -78,7 +107,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblAccountID">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Next Account-ID"/>
+        <Property name="text" type="java.lang.String" value="Account-ID"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnCreate">
@@ -88,6 +117,52 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreateActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOwner">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Initial owner"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txfOwner">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAccountType">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Select type of account"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="radioStandard">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Standard"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioStandardActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="radioSavings">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Savings"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioSavingsActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="radioStudent">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Student"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioStudentActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txfInitialSum">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblInitialSum">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Initial Deposit"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
