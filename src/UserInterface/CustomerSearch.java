@@ -3,6 +3,8 @@ package UserInterface;
 import LogicAndClasses.Account;
 import LogicAndClasses.Customer;
 import LogicAndClasses.Logic;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -24,8 +26,18 @@ public class CustomerSearch extends javax.swing.JFrame {
         this.LOGIC = Logic.getInstance();
         this.setTitle("Search for Customers");
         initComponents();
-        cbxCriteria.addItem("Customer ID");
         cbxCriteria.addItem("Customer name");
+        cbxCriteria.addItem("Customer ID");
+        this.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent evt) {
+                onExit();
+            }
+        });
+    }
+    
+    public void onExit() {
+        resetAllFields();
+        this.dispose();
     }
     
     public static CustomerSearch getInstance() {
@@ -215,16 +227,15 @@ public class CustomerSearch extends javax.swing.JFrame {
             String input = this.txfCriteria.getText();
             
             if (cbxCriteria.getSelectedIndex() == 0) {
-                LOGIC.validateNumber(input, "customer ID");
-                Customer c = LOGIC.findCustomerById(Integer.parseInt(input));
-                this.customer = c;
-                setFields();
-                
-            } else if (cbxCriteria.getSelectedIndex() == 1) {
                 this.customers = LOGIC.findCustomersByName(input);
                 this.customer = this.customers.get(0);
                 setFields();
                 refreshCustomerList();
+            } else if (cbxCriteria.getSelectedIndex() == 1) {
+                LOGIC.validateNumber(input, "customer ID");
+                Customer c = LOGIC.findCustomerById(Integer.parseInt(input));
+                this.customer = c;
+                setFields();
             } 
         }
         catch (Exception e) {
