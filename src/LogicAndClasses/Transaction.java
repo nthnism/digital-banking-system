@@ -51,9 +51,6 @@ public class Transaction {
         if (transactionType.equals("Withdrawal")) {
             this.TARGET_ACCOUNT.withdraw(sum);
         } else {
-            if (transactionType.equals("Initial Deposit")) {
-                this.TARGET_ACCOUNT.validateInitialDeposit(sum);
-            }
             this.TARGET_ACCOUNT.deposit(sum);
         }
         this.TARGET_ACCOUNT.addTransaction(this);

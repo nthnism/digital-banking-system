@@ -82,12 +82,12 @@ public class Logic {
     public Account createAccount(String accountType, Customer owner, double initialDeposit) throws Exception {
         Account a = null;
         if (accountType.equals("Standard")) {
-            a = new StandardGiroAccount(nextAccountId, accountType, owner);
+            a = new StandardGiroAccount(nextAccountId, accountType, owner, initialDeposit);
         } else if (accountType.equals("Savings")) {
-            a = new SavingsAccount(nextAccountId, accountType, owner);
+            a = new SavingsAccount(nextAccountId, accountType, owner, initialDeposit);
         } else if (accountType.equals("Student")) {
             owner.verifyEligibility();
-            a = new StudentGiroAccount(nextAccountId, accountType, owner);
+            a = new StudentGiroAccount(nextAccountId, accountType, owner, initialDeposit);
         } else {
             throw new Exception("Please select a valid account type");
         }

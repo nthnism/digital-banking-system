@@ -24,7 +24,9 @@ public abstract class Account {
     protected ArrayList<Customer> owners = new ArrayList<>();
     protected ArrayList<Transaction> transactions = new ArrayList<>();
 
-    public Account(int accountID, String accountType, Customer owner) {
+    public Account(int accountID, String accountType, Customer owner, double sum) throws Exception {
+        setDefaults();
+        validateInitialDeposit(sum);
         this.ACCOUNT_ID = accountID;
         this.accountType = accountType;
         this.CREATED_AT = LocalDate.now();
@@ -57,6 +59,10 @@ public abstract class Account {
             throw new Exception("Can't withdraw due to minimum deposit violation");
         }
         this.balance -= sum;
+    }
+    
+    protected void setDefaults() throws Exception {
+        return;
     }
     
     // Checks if the initial deposit is high enough, throws exception otherwise

@@ -6,11 +6,8 @@ package LogicAndClasses;
  */
 public class StandardGiroAccount extends Account{
 
-    public StandardGiroAccount(int accountID, String accountType, Customer owner) throws Exception {
-        super(accountID, accountType, owner);
-        setCreditInterest(0.99);
-        setDebitInterest(11.99);
-        this.setOverdraftFacility();
+    public StandardGiroAccount(int accountID, String accountType, Customer owner, double sum) throws Exception {
+        super(accountID, accountType, owner, sum);
     }
     
     @Override
@@ -21,6 +18,13 @@ public class StandardGiroAccount extends Account{
             throw new Exception("Can't withdraw due to minimum deposit violation");
         }
         this.balance -= sum;
+    }
+    
+    @Override
+    protected void setDefaults() throws Exception {
+        setCreditInterest(0.99);
+        setDebitInterest(11.99);
+        this.setOverdraftFacility();
     }
     
     @Override
