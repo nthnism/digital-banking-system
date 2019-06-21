@@ -29,35 +29,33 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lblSearch" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="cbxCustomerList" alignment="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblSearchFor" min="-2" pref="120" max="-2" attributes="0"/>
+                              <Component id="lblSearchFor" min="-2" pref="150" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="cbxCriteria" min="-2" pref="120" max="-2" attributes="0"/>
+                              <Component id="cbxCriteria" min="-2" pref="150" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="lblCustomerName" alignment="0" pref="120" max="32767" attributes="0"/>
-                                  <Component id="lblCustomerID" alignment="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lblCustomerID" max="32767" attributes="0"/>
+                                  <Component id="lblCustomerName" pref="150" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txfCustomerID" max="32767" attributes="0"/>
-                                  <Component id="txfCustomerName" max="32767" attributes="0"/>
+                                  <Component id="txfCustomerName" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Component id="txfCustomerID" min="-2" pref="150" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <Component id="cbxCustomerList" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="18" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="txfCriteria" min="-2" pref="120" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="btnSearch" min="-2" pref="120" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="btnEditCustomer" alignment="1" min="-2" pref="120" max="-2" attributes="0"/>
-                          <Component id="btnAddAccount" alignment="1" min="-2" pref="120" max="-2" attributes="0"/>
-                          <Component id="btnShowAccounts" alignment="1" min="-2" pref="120" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="32767" attributes="0"/>
+                      <Component id="txfCriteria" min="-2" pref="150" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="btnAddAccount" alignment="1" max="32767" attributes="0"/>
+                          <Component id="btnEditCustomer" alignment="1" pref="150" max="32767" attributes="0"/>
+                          <Component id="btnSearch" alignment="1" max="32767" attributes="0"/>
+                          <Component id="btnShowAccounts" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -112,7 +110,7 @@
           <Font name="Tahoma" size="18" style="0"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Search"/>
+        <Property name="text" type="java.lang.String" value="Search for customers"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblSearchFor">

@@ -27,21 +27,21 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="btnCreate" max="32767" attributes="0"/>
-                  <Component id="lblHeadline" alignment="0" pref="218" max="32767" attributes="0"/>
+                  <Component id="lblHeadline" alignment="0" pref="318" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="lblCustomerID" pref="150" max="32767" attributes="0"/>
                           <Component id="lblFirstName" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lblCustomerID" alignment="0" pref="100" max="32767" attributes="0"/>
-                          <Component id="lblLastName" max="32767" attributes="0"/>
+                          <Component id="lblLastName" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblTitle" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txfCustomerID" max="32767" attributes="0"/>
-                          <Component id="txfFirstName" max="32767" attributes="0"/>
+                          <Component id="btnCreate" alignment="1" pref="150" max="32767" attributes="0"/>
+                          <Component id="txfCustomerID" alignment="1" max="32767" attributes="0"/>
+                          <Component id="cbxTitle" alignment="1" max="32767" attributes="0"/>
+                          <Component id="txfFirstName" alignment="1" max="32767" attributes="0"/>
                           <Component id="txfLastName" max="32767" attributes="0"/>
-                          <Component id="cbxTitle" alignment="0" pref="100" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -61,7 +61,7 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblTitle" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cbxTitle" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -74,9 +74,9 @@
                   <Component id="lblLastName" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txfLastName" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnCreate" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -101,7 +101,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblCustomerID">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Next Customer-ID"/>
+        <Property name="text" type="java.lang.String" value="Customer-ID"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblFirstName">
@@ -118,7 +118,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txfLastName">
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="lblTitle">
       <Properties>
         <Property name="text" type="java.lang.String" value="Title"/>
       </Properties>

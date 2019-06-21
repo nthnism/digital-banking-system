@@ -20,7 +20,7 @@ public class Logic {
     private final ArrayList<Transaction> TRANSACTIONS;
     
     private final Pattern SPECIAL_CHARS_OR_NUMBERS = Pattern.compile("[^A-Za-z\\s\\t\\n]");
-    private final Pattern specialCharsOrCharsOrSpaces = Pattern.compile("[^0-9]");
+    private final Pattern CHARS_OR_SPACES = Pattern.compile("[^0-9]");
     
     private int nextCustomerId = 0;
     private int nextAccountId = 0;
@@ -59,7 +59,7 @@ public class Logic {
     
     // Checks if the input from the UI is a valid number, throws exception otherwise
     public void validateNumber(String input, String fieldName) throws Exception {
-        Matcher m = specialCharsOrCharsOrSpaces.matcher(input);
+        Matcher m = CHARS_OR_SPACES.matcher(input);
         if (m.find() || input.trim().length() == 0) {
             throw new Exception("Please enter a valid number for " + fieldName);
         } else if (Double.parseDouble(input) < 0) {
