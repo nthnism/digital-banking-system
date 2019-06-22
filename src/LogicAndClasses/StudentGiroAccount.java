@@ -10,12 +10,6 @@ public class StudentGiroAccount extends StandardGiroAccount {
         super(accountID, accountType, owner, sum);
     }
     
-    // Overload
-    public void setOverdraftFacility (double sum) throws Exception {
-        validateSum(sum);
-        this.overdraftFacility = sum;
-    }
-    
     @Override
     protected void setDefaults() throws Exception {
         setMinimumDeposit(0);

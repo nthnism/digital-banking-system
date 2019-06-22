@@ -194,7 +194,7 @@ public class ShowAccounts extends javax.swing.JFrame {
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         if (LOGIC.isEditable()) {
-            //new EditAccount(this.account).setVisible(true);
+            new EditAccount(this.account).setVisible(true);
             LOGIC.setEditable(false);
             this.dispose();
             return;

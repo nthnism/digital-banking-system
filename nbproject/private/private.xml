@@ -2,14 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/jona/NetBeansProjects/Digital%20Banking%20System/src/LogicAndClasses/StudentGiroAccount.java</file>
-            <file>file:/home/jona/NetBeansProjects/Digital%20Banking%20System/src/UserInterface/CreateAccount.java</file>
-            <file>file:/home/jona/NetBeansProjects/Digital%20Banking%20System/src/LogicAndClasses/StandardGiroAccount.java</file>
-            <file>file:/home/jona/NetBeansProjects/Digital%20Banking%20System/src/UserInterface/CustomerSearch.java</file>
-            <file>file:/home/jona/NetBeansProjects/Digital%20Banking%20System/src/LogicAndClasses/Account.java</file>
-            <file>file:/home/jona/NetBeansProjects/Digital%20Banking%20System/src/LogicAndClasses/Transaction.java</file>
-            <file>file:/home/jona/NetBeansProjects/Digital%20Banking%20System/src/LogicAndClasses/Logic.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

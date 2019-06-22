@@ -123,9 +123,10 @@ public abstract class Account {
     public double getOverdraftFacility() {
         return overdraftFacility;
     }
-
-    public void setOverdraftFacility() throws Exception {
-        // implemented in StandardGiroAccount
+    
+    public void setOverdraftFacility (double sum) throws Exception {
+        validateSum(sum);
+        this.overdraftFacility = sum;
     }
 
     public double getDailyLimit() {
