@@ -99,6 +99,11 @@ public class ShowAccounts extends javax.swing.JFrame {
         btnWithdraw.setText("Withdraw");
 
         btnDeposit.setText("Deposit");
+        btnDeposit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDepositActionPerformed(evt);
+            }
+        });
 
         lblID.setText("Account-ID ");
 
@@ -201,6 +206,16 @@ public class ShowAccounts extends javax.swing.JFrame {
         }
         JOptionPane.showMessageDialog(null, "Please close other editing dialogs first", "Error", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_btnEditActionPerformed
+
+    private void btnDepositActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositActionPerformed
+        if (LOGIC.isEditable()) {
+            new Deposit(this.account).setVisible(true);
+            LOGIC.setEditable(false);
+            this.dispose();
+            return;
+        }
+        JOptionPane.showMessageDialog(null, "Please close other editing dialogs first", "Error", JOptionPane.WARNING_MESSAGE);
+    }//GEN-LAST:event_btnDepositActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDeposit;
