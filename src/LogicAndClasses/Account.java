@@ -71,6 +71,11 @@ public abstract class Account {
             throw new Exception("Please deposit sufficient funds to create this account");
         }
     }
+    
+    @Override
+    public String toString() {
+        return "Account tpye: " + accountType + "\t ID: " + ACCOUNT_ID + "\t Balance: " + balance;
+    }
 
     public int getACCOUNT_ID() {
         return ACCOUNT_ID;

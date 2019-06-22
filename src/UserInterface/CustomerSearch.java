@@ -136,7 +136,7 @@ public class CustomerSearch extends javax.swing.JFrame {
             }
         });
 
-        btnAddAccount.setText("New Account");
+        btnAddAccount.setText("Add new Account");
         btnAddAccount.setEnabled(false);
         btnAddAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,8 +144,13 @@ public class CustomerSearch extends javax.swing.JFrame {
             }
         });
 
-        btnShowAccounts.setText("Accounts");
+        btnShowAccounts.setText("Show Customer Accounts");
         btnShowAccounts.setEnabled(false);
+        btnShowAccounts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowAccountsActionPerformed(evt);
+            }
+        });
 
         cbxCustomerList.setEnabled(false);
         cbxCustomerList.addActionListener(new java.awt.event.ActionListener() {
@@ -182,9 +187,9 @@ public class CustomerSearch extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnAddAccount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnEditCustomer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(btnSearch, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnShowAccounts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(btnShowAccounts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnEditCustomer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnSearch, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -278,6 +283,20 @@ public class CustomerSearch extends javax.swing.JFrame {
             setFields();
         }
     }//GEN-LAST:event_cbxCustomerListActionPerformed
+
+    private void btnShowAccountsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowAccountsActionPerformed
+        if (LOGIC.isEditable()) {
+            if (this.customer.getACCOUNTS().size() > 0) {
+                new ShowAccounts(this.customer).setVisible(true);
+                resetAllFields();
+                this.dispose();
+                return;
+            }
+            JOptionPane.showMessageDialog(null, "This customer has no account yet\nPlease create one first", "Error", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        JOptionPane.showMessageDialog(null, "Please close other editing dialogs first", "Error", JOptionPane.WARNING_MESSAGE);
+    }//GEN-LAST:event_btnShowAccountsActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddAccount;

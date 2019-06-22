@@ -53,9 +53,9 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="btnAddAccount" alignment="1" max="32767" attributes="0"/>
-                          <Component id="btnEditCustomer" alignment="1" pref="150" max="32767" attributes="0"/>
-                          <Component id="btnSearch" alignment="1" max="32767" attributes="0"/>
                           <Component id="btnShowAccounts" max="32767" attributes="0"/>
+                          <Component id="btnEditCustomer" alignment="1" max="32767" attributes="0"/>
+                          <Component id="btnSearch" alignment="1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -172,7 +172,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnAddAccount">
       <Properties>
-        <Property name="text" type="java.lang.String" value="New Account"/>
+        <Property name="text" type="java.lang.String" value="Add new Account"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -181,9 +181,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnShowAccounts">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Accounts"/>
+        <Property name="text" type="java.lang.String" value="Show Customer Accounts"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnShowAccountsActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="cbxCustomerList">
       <Properties>
