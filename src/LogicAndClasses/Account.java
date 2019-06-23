@@ -74,7 +74,7 @@ public abstract class Account {
     
     @Override
     public String toString() {
-        return "Account tpye: " + accountType + "\t ID: " + ACCOUNT_ID + "\t Balance: " + balance;
+        return  "ID: " + ACCOUNT_ID + "\t\t Account tpye: " + accountType;
     }
 
     public int getACCOUNT_ID() {

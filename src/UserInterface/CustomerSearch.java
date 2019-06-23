@@ -1,6 +1,5 @@
 package UserInterface;
 
-import LogicAndClasses.Account;
 import LogicAndClasses.Customer;
 import LogicAndClasses.Logic;
 import java.awt.event.WindowAdapter;
@@ -19,12 +18,11 @@ public class CustomerSearch extends javax.swing.JFrame {
     private static CustomerSearch instance = null;
     private final Logic LOGIC;
     private Customer customer;
-    private Account account;
     private ArrayList<Customer> customers = new ArrayList<>();
     
     private CustomerSearch() {
         this.LOGIC = Logic.getInstance();
-        this.setTitle("Search for Customers");
+        this.setTitle("Search for customers");
         initComponents();
         cbxCriteria.addItem("Customer name");
         cbxCriteria.addItem("Customer ID");

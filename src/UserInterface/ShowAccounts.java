@@ -97,6 +97,11 @@ public class ShowAccounts extends javax.swing.JFrame {
         btnTransaction.setText("Make a transaction");
 
         btnWithdraw.setText("Withdraw");
+        btnWithdraw.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnWithdrawActionPerformed(evt);
+            }
+        });
 
         btnDeposit.setText("Deposit");
         btnDeposit.addActionListener(new java.awt.event.ActionListener() {
@@ -201,7 +206,7 @@ public class ShowAccounts extends javax.swing.JFrame {
         if (LOGIC.isEditable()) {
             new EditAccount(this.account).setVisible(true);
             LOGIC.setEditable(false);
-            this.dispose();
+            //this.dispose();
             return;
         }
         JOptionPane.showMessageDialog(null, "Please close other editing dialogs first", "Error", JOptionPane.WARNING_MESSAGE);
@@ -211,11 +216,21 @@ public class ShowAccounts extends javax.swing.JFrame {
         if (LOGIC.isEditable()) {
             new Deposit(this.account).setVisible(true);
             LOGIC.setEditable(false);
-            this.dispose();
+            //this.dispose();
             return;
         }
         JOptionPane.showMessageDialog(null, "Please close other editing dialogs first", "Error", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_btnDepositActionPerformed
+
+    private void btnWithdrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWithdrawActionPerformed
+        if (LOGIC.isEditable()) {
+            new Withdrawal(this.account).setVisible(true);
+            LOGIC.setEditable(false);
+            //this.dispose();
+            return;
+        }
+        JOptionPane.showMessageDialog(null, "Please close other editing dialogs first", "Error", JOptionPane.WARNING_MESSAGE);
+    }//GEN-LAST:event_btnWithdrawActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDeposit;

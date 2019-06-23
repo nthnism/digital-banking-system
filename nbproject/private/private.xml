@@ -4,8 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/jona/NetBeansProjects/Digital%20Banking%20System/src/UserInterface/ShowAccounts.java</file>
-            <file>file:/home/jona/NetBeansProjects/Digital%20Banking%20System/src/UserInterface/Deposit.java</file>
+            <file>file:/home/jona/NetBeansProjects/Digital%20Banking%20System/src/UserInterface/AccountSearch.java</file>
             <file>file:/home/jona/NetBeansProjects/Digital%20Banking%20System/src/UserInterface/EditAccount.java</file>
+            <file>file:/home/jona/NetBeansProjects/Digital%20Banking%20System/src/UserInterface/CustomerSearch.java</file>
             <file>file:/home/jona/NetBeansProjects/Digital%20Banking%20System/src/LogicAndClasses/Account.java</file>
             <file>file:/home/jona/NetBeansProjects/Digital%20Banking%20System/src/LogicAndClasses/Logic.java</file>
         </group>

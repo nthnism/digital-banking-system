@@ -40,6 +40,7 @@ public class MainMenu extends javax.swing.JFrame {
         lblAuthor = new javax.swing.JLabel();
         btnCreateCustomer = new javax.swing.JButton();
         btnCustomerSearch = new javax.swing.JButton();
+        btnAccountSearch = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -56,10 +57,17 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        btnCustomerSearch.setText("Search for existing customers");
+        btnCustomerSearch.setText("Search for customers");
         btnCustomerSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCustomerSearchActionPerformed(evt);
+            }
+        });
+
+        btnAccountSearch.setText("Search for accounts");
+        btnAccountSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAccountSearchActionPerformed(evt);
             }
         });
 
@@ -70,14 +78,18 @@ public class MainMenu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblLogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(lblAuthor))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnCreateCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCustomerSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(lblLogo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnCreateCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnCustomerSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnAccountSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -85,12 +97,13 @@ public class MainMenu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(lblLogo)
+                .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnCreateCustomer)
-                .addGap(18, 18, 18)
-                .addComponent(btnCustomerSearch)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCreateCustomer)
+                    .addComponent(btnCustomerSearch)
+                    .addComponent(btnAccountSearch))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblAuthor)
                 .addContainerGap())
         );
@@ -111,7 +124,12 @@ public class MainMenu extends javax.swing.JFrame {
         CustomerSearch.getInstance().setVisible(true);
     }//GEN-LAST:event_btnCustomerSearchActionPerformed
 
+    private void btnAccountSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccountSearchActionPerformed
+        //AccountSearch.getInstance().setVisible(true);
+    }//GEN-LAST:event_btnAccountSearchActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAccountSearch;
     private javax.swing.JButton btnCreateCustomer;
     private javax.swing.JButton btnCustomerSearch;
     private javax.swing.JLabel lblAuthor;
