@@ -18,7 +18,7 @@ public class CreateCustomer extends javax.swing.JFrame {
         this.LOGIC = Logic.getInstance();
         this.setTitle("Create a new customer");
         initComponents();
-        txfCustomerID.setText(LOGIC.showNextCustomerId());
+        txfCustomerID.setText(LOGIC.getNextCustomerId());
         cbxTitle.addItem("Mr.");
         cbxTitle.addItem("Mrs.");
         this.addWindowListener(new WindowAdapter() {

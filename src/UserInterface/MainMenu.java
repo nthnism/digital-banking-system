@@ -125,7 +125,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCustomerSearchActionPerformed
 
     private void btnAccountSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccountSearchActionPerformed
-        //AccountSearch.getInstance().setVisible(true);
+        AccountSearch.getInstance().setVisible(true);
     }//GEN-LAST:event_btnAccountSearchActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

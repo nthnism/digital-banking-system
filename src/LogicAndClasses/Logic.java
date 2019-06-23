@@ -126,7 +126,7 @@ public class Logic {
         throw new Exception("Transactions with only one involded account can only be deposits and withdrawals");
     }
     
-    public Customer findCustomerById(int id) throws Exception {
+    public Customer getCustomerById(int id) throws Exception {
         for (Customer c : CUSTOMERS) {
             if (c.getCUSTOMER_ID() == id) {
                 return c;
@@ -135,7 +135,7 @@ public class Logic {
         throw new Exception("There is no customer with this ID");
     }
     
-    public ArrayList<Customer> findCustomersByName(String name) throws Exception {
+    public ArrayList<Customer> getCustomersByName(String name) throws Exception {
         validateText(name, "customer name");
         ArrayList<Customer> customersToReturn = new ArrayList<>();
         name = name.toLowerCase().replaceAll("\\s+","");
@@ -151,7 +151,7 @@ public class Logic {
         return customersToReturn;
     }
     
-    public Account findAccountById(int id) throws Exception {
+    public Account getAccountById(int id) throws Exception {
         for (Account a : ACCOUNTS) {
             if (a.getACCOUNT_ID() == id) {
                 return a;
@@ -161,15 +161,15 @@ public class Logic {
     }
 
     // Needed to display the IDs the create customer/account/transaction UIs
-    public String showNextCustomerId() {
+    public String getNextCustomerId() {
         return Integer.toString(nextCustomerId);
     }
 
-    public String showNextAccountId() {
+    public String getNextAccountId() {
         return Integer.toString(nextAccountId);
     }
 
-    public String showNextTransactionId() {
+    public String getNextTransactionId() {
         return Integer.toString(nextTransactionId);
     }
     

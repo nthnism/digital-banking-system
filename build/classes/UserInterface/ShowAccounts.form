@@ -24,14 +24,11 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="cbxAccounts" max="32767" attributes="0"/>
                   <Component id="lblHeadline" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Component id="cbxAccounts" min="-2" pref="400" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="152" max="32767" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="lblID" max="32767" attributes="0"/>
@@ -43,16 +40,16 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="txfID" max="32767" attributes="0"/>
                           <Component id="txfAccountType" max="32767" attributes="0"/>
-                          <Component id="txfBalance" max="32767" attributes="0"/>
                           <Component id="txfCreatedAt" pref="150" max="32767" attributes="0"/>
+                          <Component id="txfBalance" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnEdit" max="32767" attributes="0"/>
                           <Component id="btnPrint" max="32767" attributes="0"/>
                           <Component id="btnTransaction" pref="150" max="32767" attributes="0"/>
-                          <Component id="btnWithdraw" max="32767" attributes="0"/>
                           <Component id="btnDeposit" max="32767" attributes="0"/>
+                          <Component id="btnEdit" alignment="1" max="32767" attributes="0"/>
+                          <Component id="btnWithdraw" alignment="1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -70,21 +67,25 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="btnEdit" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnPrint" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblCreatedAt" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txfCreatedAt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="btnEdit" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="btnPrint" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCreatedAt" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txfCreatedAt" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnTransaction" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblID" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txfID" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnTransaction" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnWithdraw" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblID" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txfID" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">

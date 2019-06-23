@@ -21,7 +21,7 @@ public class Withdrawal extends javax.swing.JFrame {
         this.account = a;
         this.setTitle("Withdraw money");
         initComponents();
-        txfTransactionID.setText(LOGIC.showNextTransactionId());
+        txfTransactionID.setText(LOGIC.getNextTransactionId());
         this.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent evt) {
                 onExit();

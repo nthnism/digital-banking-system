@@ -230,13 +230,13 @@ public class CustomerSearch extends javax.swing.JFrame {
             String input = this.txfCriteria.getText();
             
             if (cbxCriteria.getSelectedIndex() == 0) {
-                this.customers = LOGIC.findCustomersByName(input);
+                this.customers = LOGIC.getCustomersByName(input);
                 this.customer = this.customers.get(0);
                 setFields();
                 refreshCustomerList();
             } else if (cbxCriteria.getSelectedIndex() == 1) {
                 LOGIC.validateNumber(input, "customer ID");
-                Customer c = LOGIC.findCustomerById(Integer.parseInt(input));
+                Customer c = LOGIC.getCustomerById(Integer.parseInt(input));
                 this.customer = c;
                 setFields();
             } 
