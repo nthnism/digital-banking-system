@@ -141,11 +141,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Print report"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPrintActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnTransaction">
       <Properties>
         <Property name="text" type="java.lang.String" value="Make a transaction"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTransactionActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnWithdraw">
       <Properties>

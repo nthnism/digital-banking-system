@@ -23,6 +23,7 @@ public abstract class Account {
     
     protected ArrayList<Customer> owners = new ArrayList<>();
     protected ArrayList<Transaction> transactions = new ArrayList<>();
+    protected ArrayList<Double> balanceHistory = new ArrayList<>();
 
     public Account(int accountID, String accountType, Customer owner, double sum) throws Exception {
         setDefaults();
@@ -51,6 +52,7 @@ public abstract class Account {
     public void deposit(double sum) throws Exception {
         validateTransactionSum(sum);
         this.balance += sum;
+        updateBalanceHistory();
     }
     
     public void withdraw(double sum) throws Exception {
@@ -59,6 +61,7 @@ public abstract class Account {
             throw new Exception("Can't withdraw due to minimum deposit violation");
         }
         this.balance -= sum;
+        updateBalanceHistory();
     }
     
     protected void setDefaults() throws Exception {
@@ -75,6 +78,14 @@ public abstract class Account {
     @Override
     public String toString() {
         return  "ID: " + ACCOUNT_ID + "\t\t Account tpye: " + accountType;
+    }
+    
+    protected void updateBalanceHistory() {
+        this.balanceHistory.add(this.balance);
+    }
+    
+    public ArrayList<Double> getBalanceHistory() {
+        return this.balanceHistory;
     }
 
     public int getACCOUNT_ID() {

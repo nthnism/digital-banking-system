@@ -53,6 +53,7 @@ public class AccountSearch extends javax.swing.JFrame {
         txfCreatedAt.setText("");
         txfAccountType.setText("");
         txfBalance.setText("");
+        this.account = null;
     }
     
     public void setFields() {
@@ -282,9 +283,8 @@ public class AccountSearch extends javax.swing.JFrame {
 
     private void btnWithdrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWithdrawActionPerformed
         if (LOGIC.isEditable()) {
-            new Withdrawal(this.account).setVisible(true);
+            new CreateWithdrawal(this.account).setVisible(true);
             LOGIC.setEditable(false);
-            //this.dispose();
             return;
         }
         JOptionPane.showMessageDialog(null, "Please close other editing dialogs first", "Error", JOptionPane.WARNING_MESSAGE);
@@ -292,9 +292,8 @@ public class AccountSearch extends javax.swing.JFrame {
 
     private void btnDepositActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositActionPerformed
         if (LOGIC.isEditable()) {
-            new Deposit(this.account).setVisible(true);
+            new CreateDeposit(this.account).setVisible(true);
             LOGIC.setEditable(false);
-            //this.dispose();
             return;
         }
         JOptionPane.showMessageDialog(null, "Please close other editing dialogs first", "Error", JOptionPane.WARNING_MESSAGE);
@@ -305,11 +304,21 @@ public class AccountSearch extends javax.swing.JFrame {
     }//GEN-LAST:event_txfOwnerActionPerformed
 
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
-        // TODO add your handling code here:
+        if (LOGIC.isEditable()) {
+            new ShowTransactions(this.account).setVisible(true);
+            LOGIC.setEditable(false);
+            return;
+        }
+        JOptionPane.showMessageDialog(null, "Please close other editing dialogs first", "Error", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_btnPrintActionPerformed
 
     private void btnTransactionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransactionActionPerformed
-        // TODO add your handling code here:
+        if (LOGIC.isEditable()) {
+            new CreateTransaction(this.account).setVisible(true);
+            LOGIC.setEditable(false);
+            return;
+        }
+        JOptionPane.showMessageDialog(null, "Please close other editing dialogs first", "Error", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_btnTransactionActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

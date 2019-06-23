@@ -185,7 +185,7 @@ public class Logic {
         Account a3 = this.createAccount("Student", c2, 5);
         Account a4 = this.createAccount("Student", c1, 7200);
         
-        Transaction t1 = this.createTransaction(a1, 20, "Withdrawal", "");
+        Transaction t1 = this.createTransaction(a1, 20, "Withdrawal", "Withdrawal at the bank");
         Transaction t2 = this.createTransaction(a2, 20, "Deposit", "");
         Transaction t3 = this.createTransaction(a3, 866, "Withdrawal", "");
         Transaction t4 = this.createTransaction(a3, 1000, "Withdrawal", "");

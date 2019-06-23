@@ -18,6 +18,7 @@ public class StandardGiroAccount extends Account{
             throw new Exception("Can't withdraw due to minimum deposit violation");
         }
         this.balance -= sum;
+        updateBalanceHistory();
     }
     
     @Override
