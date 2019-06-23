@@ -27,17 +27,38 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblHeadline" pref="318" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="lblHeadline" pref="567" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnCheck" min="-2" pref="75" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="lblAmount" alignment="0" pref="150" max="32767" attributes="0"/>
                           <Component id="lblTransactionID" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblReason" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="txfAmount" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txfTransactionID" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txfReason" pref="150" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="lblTargetAcc" pref="150" max="32767" attributes="0"/>
+                          <Component id="lblOwnerName" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnWithdraw" alignment="1" max="32767" attributes="0"/>
-                          <Component id="txfTransactionID" max="32767" attributes="0"/>
-                          <Component id="txfAmount" max="32767" attributes="0"/>
+                          <Component id="txfID" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btnTransfer" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Component id="txftOwnerName" min="-2" pref="150" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
@@ -49,20 +70,31 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="lblHeadline" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblHeadline" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblTransactionID" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txfTransactionID" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblTargetAcc" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txfID" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblAmount" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txfAmount" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblOwnerName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txftOwnerName" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnWithdraw" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="18" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnTransfer" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblReason" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txfReason" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -74,7 +106,7 @@
           <Font name="Tahoma" size="18" style="0"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Withdraw money"/>
+        <Property name="text" type="java.lang.String" value="Make a transaction"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txfTransactionID">
@@ -97,13 +129,46 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txfAmount">
     </Component>
-    <Component class="javax.swing.JButton" name="btnWithdraw">
+    <Component class="javax.swing.JButton" name="btnTransfer">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Withdraw"/>
+        <Property name="text" type="java.lang.String" value="Transfer"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnWithdrawActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTransferActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblTargetAcc">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID of receiving account"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOwnerName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Name of owner"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txftOwnerName">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txfID">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnCheck">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Check"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCheckActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblReason">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Reason"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txfReason">
     </Component>
   </SubComponents>
 </Form>

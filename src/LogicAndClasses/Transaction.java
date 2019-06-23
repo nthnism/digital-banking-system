@@ -68,25 +68,4 @@ public class Transaction {
         return line;
     }
     
-    //potentially useful for printing each line into a chart
-//    public String[] printStatementLineAsArray() {
-//        String[] lineAsArray = new String[8];
-//        lineAsArray[0] = Integer.toString(this.TRANSACTION_ID);
-//        lineAsArray[1] = this.TRANSACTION_TYPE;
-//        lineAsArray[2] = this.TIME_STAMP.toString();
-//        lineAsArray[3] = Double.toString(this.CURRENT_BALANCE);
-//        lineAsArray[4] = Double.toString(this.SUM);
-//        lineAsArray[5] = Double.toString(this.UPDATED_BALANCE);
-//        lineAsArray[6] = this.TARGET_ACCOUNT == this.ORIGIN_ACCOUNT 
-//                ? 
-//                    "own account" 
-//                : 
-//                    Integer.toString(this.ORIGIN_ACCOUNT.getACCOUNT_ID());
-//        lineAsArray[7] = this.REASON_FOR_PAYMENT;
-//        for (String s : lineAsArray) {
-//            System.out.println(s);
-//        }
-//        return lineAsArray;
-//    }
-    
 }
