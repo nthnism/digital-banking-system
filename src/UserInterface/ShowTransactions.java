@@ -47,7 +47,7 @@ public class ShowTransactions extends javax.swing.JFrame {
         System.out.println(transactionsList.size());
         System.out.println(balanceHistory.size());
         int i = 0;
-        txaReport.setText("no\ttrans-id\ttype\tsum\tinvolved acc\tadditional info\t");
+        txaReport.setText("no\ttrans-id\ttype\tsum\tinvolved acc\tadditional info\t\t balance after transaction");
         txaReport.append("\n\n");
         for (Transaction t : transactionsList) {
             txaReport.append(Integer.toString(i+1) + "\t" + t.toString() + this.balanceHistory.get(i) + "\n");
