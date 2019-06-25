@@ -19,11 +19,13 @@ public class ShowTransactions extends javax.swing.JFrame {
     private final Logic LOGIC;
     private Account account;
     private ArrayList<Transaction> transactionsList;
+    private ArrayList<Double> balanceHistory;
     
     public ShowTransactions(Account a) {
         this.LOGIC = Logic.getInstance();
         this.account = a;
         this.transactionsList = a.getTransactions();
+        this.balanceHistory = a.getBalanceHistory();
         this.setTitle("Accounts Overview");
         initComponents();
         txaReport.setTabSize(8);
@@ -42,11 +44,13 @@ public class ShowTransactions extends javax.swing.JFrame {
     }
     
     public void setTransactions() {
-        int i = 1;
-        txaReport.setText("no\tunique-id\ttype\tsum\treason\t\tbalance after transaction");
+        System.out.println(transactionsList.size());
+        System.out.println(balanceHistory.size());
+        int i = 0;
+        txaReport.setText("no\ttrans-id\ttype\tsum\tinvolved acc\tadditional info\t");
         txaReport.append("\n\n");
         for (Transaction t : transactionsList) {
-            txaReport.append(Integer.toString(i) + "\t" + t.toString() + account.getBalanceHistory().get(i-1) + "\n");
+            txaReport.append(Integer.toString(i+1) + "\t" + t.toString() + this.balanceHistory.get(i) + "\n");
             i++;
         }
     }
@@ -78,7 +82,7 @@ public class ShowTransactions extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1)
-                    .addComponent(lblHeadline, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE))
+                    .addComponent(lblHeadline, javax.swing.GroupLayout.DEFAULT_SIZE, 976, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(

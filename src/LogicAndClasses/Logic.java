@@ -60,10 +60,8 @@ public class Logic {
     // Checks if the input from the UI is a valid number, throws exception otherwise
     public void validateNumber(String input, String fieldName) throws Exception {
         Matcher m = CHARS_OR_SPACES.matcher(input);
-        if (m.find() || input.trim().length() == 0) {
-            throw new Exception("Please enter a valid number for " + fieldName);
-        } else if (Double.parseDouble(input) < 0) {
-            throw new Exception("Please enter a positive number for " + fieldName);
+        if (m.find() || input.trim().length() == 0 || Double.parseDouble(input) < 0) {
+            throw new Exception("Please enter a valid(postive) number for " + fieldName);
         }
     }
     
@@ -92,7 +90,8 @@ public class Logic {
             throw new Exception("Please select a valid account type");
         }
         if (!accountType.equals("Student") || (accountType.equals("Student") && initialDeposit != 0)) {
-            this.createTransaction(a, initialDeposit, "Initial Deposit", "Initial Deposit in our bank");
+            this.createTransaction("Deposit", initialDeposit, a, "Initial Deposit");
+//            this.createTransaction(a, initialDeposit, "Initial Deposit", "Initial Deposit in our bank");
         } 
         this.ACCOUNTS.add(a);
         this.nextAccountId++;
@@ -100,30 +99,38 @@ public class Logic {
     }
     
     // Wrapper for Transaction constructor. Injects global transaction id and returns the Transaction object
-    // possible values for transactionType: Transaction
+    // possible values for transactionType: Deposit, Withdrawal
     // throws exception for invalid transactionType
-    public Transaction createTransaction(Account targetAcc, Account originAcc, double sum, String transactionType, String reasonForPayment) throws Exception {
-        if (transactionType.equals("Transaction")) {
-            Transaction t = new Transaction(nextTransactionId, targetAcc, originAcc, sum, transactionType, reasonForPayment);
-            this.TRANSACTIONS.add(t);
-            this.nextTransactionId++;
-            return t;
+    public Transaction createTransaction(String transactionType, double sum, Account target, String additionalInfo) throws Exception {
+        Transaction t = null;
+        if (transactionType.equals("Deposit")) {
+            t = new Transaction(nextTransactionId, transactionType, sum, target, "own account", additionalInfo);
+        } else if (transactionType.equals("Withdrawal")) {
+            t = new Transaction(nextTransactionId, transactionType, -sum, target, "own account", additionalInfo);
+        } else {
+            throw new Exception("Transactions with only one involded account can only be deposits and withdrawals");
         }
-        throw new Exception("Transactions with two involded accounts can only be transactions");
+        this.TRANSACTIONS.add(t);
+        this.nextTransactionId++;
+        return t;
     }
     
-    // Overload for createTransaction, accepts only one account
+    // Overload for createTransaction, accepts two accounts for transactions
     // Wrapper for Transaction constructor. Injects global transaction id and returns the Transaction object
-    // possible values for transactionType: Initial Deposit, Deposit, Withdrawal
-    // throws exception for invalid transactionType
-    public Transaction createTransaction(Account targetAcc, double sum, String transactionType, String reasonForPayment) throws Exception {
-        if (transactionType.equals("Initial Deposit") || transactionType.equals("Deposit") || transactionType.equals("Withdrawal")) {
-            Transaction t = new Transaction(nextTransactionId, targetAcc, sum, transactionType, reasonForPayment);
-            this.TRANSACTIONS.add(t);
+    // possible values for transactionType: Transaction
+    // throws exception for invalid transactionType 
+    public Transaction createTransaction(String transactionType, double sum, Account origin, Account target, String additionalInfo) throws Exception {
+        if (transactionType.equals("Transaction")) {
+            String targetId = Integer.toString(target.getACCOUNT_ID());
+            String originId = Integer.toString(origin.getACCOUNT_ID());
+            Transaction t1 = new Transaction(nextTransactionId, "Outgoing", -sum, origin, targetId, additionalInfo);
+            Transaction t2 = new Transaction(nextTransactionId, "Incoming", sum, target, originId, additionalInfo);
+            this.TRANSACTIONS.add(t1);
+            this.TRANSACTIONS.add(t2);
             this.nextTransactionId++;
-            return t;
+            return t1;
         }
-        throw new Exception("Transactions with only one involded account can only be deposits and withdrawals");
+        throw new Exception("Transactions with two involded accounts can only be transactions");
     }
     
     public Customer getCustomerById(int id) throws Exception {
@@ -185,13 +192,13 @@ public class Logic {
         Account a3 = this.createAccount("Student", c2, 5);
         Account a4 = this.createAccount("Student", c1, 7200);
         
-        Transaction t1 = this.createTransaction(a1, 20, "Withdrawal", "Withdrawal at the bank");
-        Transaction t2 = this.createTransaction(a2, 20, "Deposit", "");
-        Transaction t3 = this.createTransaction(a3, 866, "Withdrawal", "");
-        Transaction t4 = this.createTransaction(a3, 1000, "Withdrawal", "");
-        Transaction t5 = this.createTransaction(a2, a1, 4560, "Transaction", "Helping a buddy out.");
-        Transaction t6 = this.createTransaction(a4, a2, 1, "Transaction", "lul u got nuttin.");
-        Transaction t7 = this.createTransaction(a3, a1, 20, "Transaction", "for the beer last week.");
+        Transaction t1 = this.createTransaction("Withdrawal", 20, a1, "Withdrawal at our bank");
+        Transaction t2 = this.createTransaction("Deposit", 20, a2, "Deposit at our bank");
+        Transaction t3 = this.createTransaction("Withdrawal", 866, a3, "Withdrawal at our bank");
+        Transaction t4 = this.createTransaction("Withdrawal", 1000, a3, "Withdrawal at our bank");
+        Transaction t5 = this.createTransaction("Transaction", 4560, a1, a2, "Helping a buddy out.");
+        Transaction t6 = this.createTransaction("Transaction", 10, a2, a4, "for the meal.");
+        Transaction t7 = this.createTransaction("Transaction", 20,a1, a3, "for the beer last week.");
     }
 
     // condition the ui checks to decide if opening a new panel with edit-permissions

@@ -118,7 +118,7 @@ public class CreateDeposit extends javax.swing.JFrame {
         String sum = txfAmount.getText();
         try {
             LOGIC.validateNumber(sum, "amount");
-            LOGIC.createTransaction(this.account, Double.parseDouble(sum), "Deposit", "Deposit at our bank");
+            LOGIC.createTransaction("Deposit", Double.parseDouble(sum), this.account, "Deposit at our bank");
             String confirmation = "The deposit was successful\nNew balance: " + account.getBalance();
             JOptionPane.showMessageDialog(null, confirmation , "Success", JOptionPane.PLAIN_MESSAGE);
             this.LOGIC.setEditable(true);

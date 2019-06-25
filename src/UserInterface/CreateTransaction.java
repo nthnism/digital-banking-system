@@ -178,7 +178,7 @@ public class CreateTransaction extends javax.swing.JFrame {
         String sum = txfAmount.getText();
         try {
             LOGIC.validateNumber(sum, "amount");
-            LOGIC.createTransaction(this.targetAcc, this.originAcc, Double.parseDouble(sum), "Transaction", txfReason.getText());
+            LOGIC.createTransaction("Transaction", Double.parseDouble(sum), this.originAcc, this.targetAcc, txfReason.getText());
             String confirmation = "The transaction was successful\nNew balance: " + originAcc.getBalance();
             JOptionPane.showMessageDialog(null, confirmation , "Success", JOptionPane.PLAIN_MESSAGE);
             this.LOGIC.setEditable(true);

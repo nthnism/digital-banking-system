@@ -118,7 +118,7 @@ public class CreateWithdrawal extends javax.swing.JFrame {
         String sum = txfAmount.getText();
         try {
             LOGIC.validateNumber(sum, "amount");
-            LOGIC.createTransaction(this.account, Double.parseDouble(sum), "Withdrawal", "Withdrawal at our bank");
+            LOGIC.createTransaction("Withdrawal", -Double.parseDouble(sum), this.account, "Withdrawal at our bank");
             String confirmation = "The withdrawal was successful\nNew balance: " + account.getBalance();
             JOptionPane.showMessageDialog(null, confirmation , "Success", JOptionPane.PLAIN_MESSAGE);
             this.LOGIC.setEditable(true);

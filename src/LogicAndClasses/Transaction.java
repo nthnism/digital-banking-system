@@ -11,50 +11,28 @@ public class Transaction {
     private final int TRANSACTION_ID;
     
     private final double SUM;
-    private final double CURRENT_BALANCE;
-    private final double UPDATED_BALANCE;
     
     private final LocalDateTime TIME_STAMP;
     
-    private final Account TARGET_ACCOUNT;
-    private final Account ORIGIN_ACCOUNT;
+    private final Account TARGET;
     
+    private final String ORIGIN;
     private final String TRANSACTION_TYPE;
-    private final String REASON_FOR_PAYMENT;
-
-    public Transaction(int transactionId, Account targetAcc, Account originAcc, double sum, String transactionType, String reasonForPayment) throws Exception {
-        this.TRANSACTION_ID = transactionId;
-        this.SUM = sum;
-        this.TIME_STAMP = LocalDateTime.now();
-        this.TRANSACTION_TYPE = transactionType;
-        this.REASON_FOR_PAYMENT = reasonForPayment;
-        this.TARGET_ACCOUNT = targetAcc;
-        this.CURRENT_BALANCE = this.TARGET_ACCOUNT.getBalance();
-        this.ORIGIN_ACCOUNT = originAcc;
-        this.ORIGIN_ACCOUNT.withdraw(sum);
-        this.TARGET_ACCOUNT.deposit(sum);
-        this.ORIGIN_ACCOUNT.addTransaction(this);
-        this.TARGET_ACCOUNT.addTransaction(this);
-        this.UPDATED_BALANCE = this.TARGET_ACCOUNT.getBalance();
-    }
+    private final String ADDITIONAL_INFO;
     
-    // Overload for transactions involving only a sinlge account
-    public Transaction(int transactionId, Account targetAcc, double sum, String transactionType, String reasonForPayment) throws Exception {
+    public Transaction(int transactionId, String transactionType, double sum, Account target, String originId, String additionalInfo) throws Exception {
+        if (additionalInfo.equals("Initial Deposit")) {
+            target.validateInitialDeposit(sum);
+        }
         this.TRANSACTION_ID = transactionId;
         this.SUM = sum;
         this.TIME_STAMP = LocalDateTime.now();
         this.TRANSACTION_TYPE = transactionType;
-        this.REASON_FOR_PAYMENT = reasonForPayment;
-        this.TARGET_ACCOUNT = targetAcc;
-        this.CURRENT_BALANCE = this.TARGET_ACCOUNT.getBalance();    
-        this.ORIGIN_ACCOUNT = null;
-        if (transactionType.equals("Withdrawal")) {
-            this.TARGET_ACCOUNT.withdraw(sum);
-        } else {
-            this.TARGET_ACCOUNT.deposit(sum);
-        }
-        this.TARGET_ACCOUNT.addTransaction(this);
-        this.UPDATED_BALANCE = this.TARGET_ACCOUNT.getBalance();
+        this.ADDITIONAL_INFO = additionalInfo;
+        this.TARGET = target;
+        this.TARGET.modifyBalanceBy(sum);
+        this.ORIGIN = originId;
+        this.TARGET.addTransaction(this);
     }
     
     @Override
@@ -63,9 +41,38 @@ public class Transaction {
         String id = Integer.toString(this.TRANSACTION_ID) + "\t";
         String type = this.TRANSACTION_TYPE + "\t";
         String sum = Double.toString(this.SUM) + "\t";
-        String reason = this.REASON_FOR_PAYMENT + "\t\t";
-        line = id + type + sum + reason;
+        String origin = this.ORIGIN + "\t";
+        String reason = this.ADDITIONAL_INFO + "\t\t";
+        line = id + type + sum + origin + reason;
         return line;
+    }
+
+    public int getTRANSACTION_ID() {
+        return TRANSACTION_ID;
+    }
+
+    public double getSUM() {
+        return SUM;
+    }
+
+    public LocalDateTime getTIME_STAMP() {
+        return TIME_STAMP;
+    }
+
+    public Account getTARGET() {
+        return TARGET;
+    }
+
+    public String getORIGIN() {
+        return ORIGIN;
+    }
+
+    public String getTRANSACTION_TYPE() {
+        return TRANSACTION_TYPE;
+    }
+
+    public String getADDITIONAL_INFO() {
+        return ADDITIONAL_INFO;
     }
     
 }

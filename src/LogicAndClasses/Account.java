@@ -2,6 +2,7 @@ package LogicAndClasses;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
@@ -18,19 +19,18 @@ public abstract class Account {
     protected double debitInterest;
     protected double creditInterest;
     protected double minimumDeposit = 500000;
-    protected double overdraftFacility;
+    protected double overdraftFacility = 0;
     protected double dailyLimit;
     
     protected ArrayList<Customer> owners = new ArrayList<>();
     protected ArrayList<Transaction> transactions = new ArrayList<>();
-    protected ArrayList<Double> balanceHistory = new ArrayList<>();
 
     public Account(int accountID, String accountType, Customer owner, double sum) throws Exception {
         setDefaults();
         validateInitialDeposit(sum);
         this.ACCOUNT_ID = accountID;
-        this.accountType = accountType;
         this.CREATED_AT = LocalDate.now();
+        this.accountType = accountType;
         this.owners.add(owner);
         owner.addAccount(this);
     }
@@ -49,21 +49,14 @@ public abstract class Account {
         }
     }
     
-    public void deposit(double sum) throws Exception {
-        validateTransactionSum(sum);
-        this.balance += sum;
-        updateBalanceHistory();
-    }
-    
-    public void withdraw(double sum) throws Exception {
-        validateTransactionSum(sum);
-        if ((this.balance - sum) < this.minimumDeposit) {
+    public void modifyBalanceBy(double sum) throws Exception {
+        if ((this.balance + sum) < this.minimumDeposit - this.overdraftFacility) {
             throw new Exception("Can't withdraw due to minimum deposit violation");
         }
-        this.balance -= sum;
-        updateBalanceHistory();
+        this.balance += sum;
     }
     
+    // used to be able to call methods before calling super in inheriting classes
     protected void setDefaults() throws Exception {
         return;
     }
@@ -75,17 +68,19 @@ public abstract class Account {
         }
     }
     
+    public ArrayList<Double> getBalanceHistory() {
+        ArrayList history = new ArrayList<>();
+        double snapShot = 0;
+        for (Transaction t : this.transactions) {
+            snapShot += t.getSUM();
+            history.add(snapShot);
+        }
+        return history;
+    }
+    
     @Override
     public String toString() {
         return  "ID: " + ACCOUNT_ID + "\t\t Account tpye: " + accountType;
-    }
-    
-    protected void updateBalanceHistory() {
-        this.balanceHistory.add(this.balance);
-    }
-    
-    public ArrayList<Double> getBalanceHistory() {
-        return this.balanceHistory;
     }
 
     public int getACCOUNT_ID() {
@@ -109,7 +104,6 @@ public abstract class Account {
     }
 
     public void setDebitInterest(double debitInterest) throws Exception {
-        validateSum(debitInterest);
         this.debitInterest = debitInterest;
     }
 
@@ -118,7 +112,6 @@ public abstract class Account {
     }
 
     public void setCreditInterest(double creditInterest) throws Exception {
-        validateSum(creditInterest);
         this.creditInterest = creditInterest;
     }
 
@@ -127,7 +120,6 @@ public abstract class Account {
     }
 
     public void setMinimumDeposit(double minimumDeposit) throws Exception {
-        validateSum(minimumDeposit);
         this.minimumDeposit = minimumDeposit;
     }
 
@@ -136,7 +128,6 @@ public abstract class Account {
     }
     
     public void setOverdraftFacility (double sum) throws Exception {
-        validateSum(sum);
         this.overdraftFacility = sum;
     }
 
@@ -145,7 +136,6 @@ public abstract class Account {
     }
 
     public void setDailyLimit(double dailyLimit) throws Exception {
-        validateSum(dailyLimit);
         this.dailyLimit = dailyLimit;
     }
 
