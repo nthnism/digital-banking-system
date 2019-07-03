@@ -3,6 +3,8 @@
 This is a small java project I did for school, realized with netbeans.
 The main entry point for this app is the logic class.
 
+This is completely uncommercial and purely for educational purpose!
+
 In there I provide four factory methods to initialize new obejcts:
 
   1. createCustomer(String title, String firstName, String lastName)
