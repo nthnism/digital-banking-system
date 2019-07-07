@@ -5,7 +5,7 @@ The main entry point for this app is the logic class.
 
 This is completely uncommercial and purely for educational purpose!
 
-In there I provide four factory methods to initialize new obejcts:
+In there I provide four wrapper methods to initialize new objects:
 
   1. createCustomer(String title, String firstName, String lastName)
   2. createAccount(String accountType, Customer owner, double initialDeposit)
