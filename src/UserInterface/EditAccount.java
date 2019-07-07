@@ -14,15 +14,16 @@ import javax.swing.JOptionPane;
 public class EditAccount extends javax.swing.JFrame {
 
     private final Logic LOGIC;
-    private Account account;
+    private final Account ACCOUNT;
     
     public EditAccount(Account a) {
         this.LOGIC = Logic.getInstance();
-        this.account = a;
+        this.ACCOUNT = a;
         this.setTitle("Edit this account");
         initComponents();
         setFields();
         this.addWindowListener(new WindowAdapter() {
+            @Override
             public void windowClosing(WindowEvent evt) {
                 onExit();
             }
@@ -35,11 +36,11 @@ public class EditAccount extends javax.swing.JFrame {
     }
     
     public void setFields() {
-        txfCustomerID.setText(Integer.toString(account.getACCOUNT_ID()));
-        txfMinimumDeposit.setText(Double.toString(account.getMinimumDeposit()));
-        txfCreditInterest.setText(Double.toString(account.getCreditInterest()));
-        txfDebitInterest.setText(Double.toString(account.getDebitInterest()));
-        txfOverdraft.setText(Double.toString(account.getOverdraftFacility()));
+        txfCustomerID.setText(Integer.toString(ACCOUNT.getACCOUNT_ID()));
+        txfMinimumDeposit.setText(Double.toString(ACCOUNT.getMinimumDeposit()));
+        txfCreditInterest.setText(Double.toString(ACCOUNT.getCreditInterest()));
+        txfDebitInterest.setText(Double.toString(ACCOUNT.getDebitInterest()));
+        txfOverdraft.setText(Double.toString(ACCOUNT.getOverdraftFacility()));
     }
     
     @SuppressWarnings("unchecked")
@@ -162,10 +163,10 @@ public class EditAccount extends javax.swing.JFrame {
             LOGIC.validateNumber(creditInterest, "credit interest");
             LOGIC.validateNumber(debitInterest, "debit interest");
             LOGIC.validateNumber(overDraft, "overdraft facility");
-            account.setMinimumDeposit(Double.parseDouble(minimumDeposit));
-            account.setCreditInterest(Double.parseDouble(creditInterest));
-            account.setDebitInterest(Double.parseDouble(debitInterest));
-            account.setOverdraftFacility(Double.parseDouble(overDraft));
+            ACCOUNT.setMinimumDeposit(Double.parseDouble(minimumDeposit));
+            ACCOUNT.setCreditInterest(Double.parseDouble(creditInterest));
+            ACCOUNT.setDebitInterest(Double.parseDouble(debitInterest));
+            ACCOUNT.setOverdraftFacility(Double.parseDouble(overDraft));
             JOptionPane.showMessageDialog(null, "The changes have been saved", "Success", JOptionPane.PLAIN_MESSAGE);
             this.LOGIC.setEditable(true);
             this.dispose();

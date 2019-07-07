@@ -25,6 +25,7 @@ public class CreateAccount extends javax.swing.JFrame {
         txfCustomerID.setText(LOGIC.getNextAccountId());
         txfOwner.setText(this.customer.getFullName());
         this.addWindowListener(new WindowAdapter() {
+            @Override
             public void windowClosing(WindowEvent evt) {
                 onExit();
             }

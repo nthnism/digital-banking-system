@@ -24,6 +24,7 @@ public class AccountSearch extends javax.swing.JFrame {
         this.setTitle("Search for accounts");
         initComponents();
         this.addWindowListener(new WindowAdapter() {
+            @Override
             public void windowClosing(WindowEvent evt) {
                 onExit();
             }

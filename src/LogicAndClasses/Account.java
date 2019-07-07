@@ -2,7 +2,6 @@ package LogicAndClasses;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  *
@@ -58,7 +57,6 @@ public abstract class Account {
     
     // used to be able to call methods before calling super in inheriting classes
     protected void setDefaults() throws Exception {
-        return;
     }
     
     // Checks if the initial deposit is high enough, throws exception otherwise

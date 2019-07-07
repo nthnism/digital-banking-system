@@ -14,11 +14,11 @@ import javax.swing.JOptionPane;
 public class EditCustomer extends javax.swing.JFrame {
 
     private final Logic LOGIC;
-    private Customer customer;
+    private final Customer CUSTOMER;
     
     public EditCustomer(Customer customer) {
         this.LOGIC = Logic.getInstance();
-        this.customer = customer;
+        this.CUSTOMER = customer;
         this.setTitle("Edit this customer");
         initComponents();
         cbxTitle.addItem("Mr.");
@@ -26,6 +26,7 @@ public class EditCustomer extends javax.swing.JFrame {
         setFields();
         
         this.addWindowListener(new WindowAdapter() {
+            @Override
             public void windowClosing(WindowEvent evt) {
                 onExit();
             }
@@ -38,11 +39,11 @@ public class EditCustomer extends javax.swing.JFrame {
     }
     
     public void setFields() {
-        txfCustomerID.setText(Integer.toString(customer.getCUSTOMER_ID()));
-        txfCustomerSince.setText(customer.getCREATED_AT().toString());
-        cbxTitle.setSelectedIndex(customer.getTitle().equals("Mr.") ? 0 : 1);
-        txfFirstName.setText(customer.getFirstName());
-        txfLastName.setText(customer.getLastName());
+        txfCustomerID.setText(Integer.toString(CUSTOMER.getCUSTOMER_ID()));
+        txfCustomerSince.setText(CUSTOMER.getCREATED_AT().toString());
+        cbxTitle.setSelectedIndex(CUSTOMER.getTitle().equals("Mr.") ? 0 : 1);
+        txfFirstName.setText(CUSTOMER.getFirstName());
+        txfLastName.setText(CUSTOMER.getLastName());
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -160,9 +161,9 @@ public class EditCustomer extends javax.swing.JFrame {
         String lastName = txfLastName.getText();
         String title = cbxTitle.getItemAt(cbxTitle.getSelectedIndex());
         try {
-            customer.setTitle(title);
-            customer.setFirstName(firstName);
-            customer.setLastName(lastName);
+            CUSTOMER.setTitle(title);
+            CUSTOMER.setFirstName(firstName);
+            CUSTOMER.setLastName(lastName);
             JOptionPane.showMessageDialog(null, "The changes have been saved", "Success", JOptionPane.PLAIN_MESSAGE);
             this.LOGIC.setEditable(true);
             this.dispose();

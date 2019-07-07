@@ -27,6 +27,7 @@ public class CustomerSearch extends javax.swing.JFrame {
         cbxCriteria.addItem("Customer name");
         cbxCriteria.addItem("Customer ID");
         this.addWindowListener(new WindowAdapter() {
+            @Override
             public void windowClosing(WindowEvent evt) {
                 onExit();
             }

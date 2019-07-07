@@ -79,15 +79,19 @@ public class Logic {
     // throws exception for invalid accountType
     public Account createAccount(String accountType, Customer owner, double initialDeposit) throws Exception {
         Account a = null;
-        if (accountType.equals("Standard")) {
-            a = new StandardGiroAccount(nextAccountId, accountType, owner, initialDeposit);
-        } else if (accountType.equals("Savings")) {
-            a = new SavingsAccount(nextAccountId, accountType, owner, initialDeposit);
-        } else if (accountType.equals("Student")) {
-            owner.verifyEligibility();
-            a = new StudentGiroAccount(nextAccountId, accountType, owner, initialDeposit);
-        } else {
-            throw new Exception("Please select a valid account type");
+        switch (accountType) {
+            case "Standard":
+                a = new StandardGiroAccount(nextAccountId, accountType, owner, initialDeposit);
+                break;
+            case "Savings":
+                a = new SavingsAccount(nextAccountId, accountType, owner, initialDeposit);
+                break;
+            case "Student":
+                owner.verifyEligibility();
+                a = new StudentGiroAccount(nextAccountId, accountType, owner, initialDeposit);
+                break;
+            default:
+                throw new Exception("Please select a valid account type");
         }
         if (!accountType.equals("Student") || (accountType.equals("Student") && initialDeposit != 0)) {
             this.createTransaction("Deposit", initialDeposit, a, "Initial Deposit");
@@ -103,12 +107,15 @@ public class Logic {
     // throws exception for invalid transactionType
     public Transaction createTransaction(String transactionType, double sum, Account target, String additionalInfo) throws Exception {
         Transaction t = null;
-        if (transactionType.equals("Deposit")) {
-            t = new Transaction(nextTransactionId, transactionType, sum, target, "own account", additionalInfo);
-        } else if (transactionType.equals("Withdrawal")) {
-            t = new Transaction(nextTransactionId, transactionType, -sum, target, "own account", additionalInfo);
-        } else {
-            throw new Exception("Transactions with only one involded account can only be deposits and withdrawals");
+        switch (transactionType) {
+            case "Deposit":
+                t = new Transaction(nextTransactionId, transactionType, sum, target, "own account", additionalInfo);
+                break;
+            case "Withdrawal":
+                t = new Transaction(nextTransactionId, transactionType, -sum, target, "own account", additionalInfo);
+                break;
+            default:
+                throw new Exception("Transactions with only one involded account can only be deposits and withdrawals");
         }
         this.TRANSACTIONS.add(t);
         this.nextTransactionId++;

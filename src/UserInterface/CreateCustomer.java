@@ -22,6 +22,7 @@ public class CreateCustomer extends javax.swing.JFrame {
         cbxTitle.addItem("Mr.");
         cbxTitle.addItem("Mrs.");
         this.addWindowListener(new WindowAdapter() {
+            @Override
             public void windowClosing(WindowEvent evt) {
                 onExit();
             }

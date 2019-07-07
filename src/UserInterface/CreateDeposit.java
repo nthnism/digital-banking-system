@@ -23,6 +23,7 @@ public class CreateDeposit extends javax.swing.JFrame {
         initComponents();
         txfTransactionID.setText(LOGIC.getNextTransactionId());
         this.addWindowListener(new WindowAdapter() {
+            @Override
             public void windowClosing(WindowEvent evt) {
                 onExit();
             }

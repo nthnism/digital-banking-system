@@ -1,13 +1,11 @@
 package UserInterface;
 
 import LogicAndClasses.Account;
-import LogicAndClasses.Customer;
 import LogicAndClasses.Logic;
 import LogicAndClasses.Transaction;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,21 +15,22 @@ import javax.swing.JOptionPane;
 public class ShowTransactions extends javax.swing.JFrame {
 
     private final Logic LOGIC;
-    private Account account;
-    private ArrayList<Transaction> transactionsList;
-    private ArrayList<Double> balanceHistory;
+    private final Account ACCOUNT;
+    private final ArrayList<Transaction> TRANSACTIONS_LIST;
+    private final ArrayList<Double> BALANCE_HISTORY;
     
     public ShowTransactions(Account a) {
         this.LOGIC = Logic.getInstance();
-        this.account = a;
-        this.transactionsList = a.getTransactions();
-        this.balanceHistory = a.getBalanceHistory();
+        this.ACCOUNT = a;
+        this.TRANSACTIONS_LIST = a.getTransactions();
+        this.BALANCE_HISTORY = a.getBalanceHistory();
         this.setTitle("Accounts Overview");
         initComponents();
         txaReport.setTabSize(8);
         setTransactions();
         lblHeadline.setText("Showing transactions for account no." + a.getACCOUNT_ID());
         this.addWindowListener(new WindowAdapter() {
+            @Override
             public void windowClosing(WindowEvent evt) {
                 onExit();
             }
@@ -44,13 +43,11 @@ public class ShowTransactions extends javax.swing.JFrame {
     }
     
     public void setTransactions() {
-        System.out.println(transactionsList.size());
-        System.out.println(balanceHistory.size());
         int i = 0;
         txaReport.setText("no\ttrans-id\ttype\tsum\tinvolved acc\tadditional info\t\t balance after transaction");
         txaReport.append("\n\n");
-        for (Transaction t : transactionsList) {
-            txaReport.append(Integer.toString(i+1) + "\t" + t.toString() + this.balanceHistory.get(i) + "\n");
+        for (Transaction t : TRANSACTIONS_LIST) {
+            txaReport.append(Integer.toString(i+1) + "\t" + t.toString() + this.BALANCE_HISTORY.get(i) + "\n");
             i++;
         }
     }

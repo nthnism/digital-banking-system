@@ -16,19 +16,20 @@ import javax.swing.JOptionPane;
 public class ShowAccounts extends javax.swing.JFrame {
 
     private final Logic LOGIC;
-    private Customer customer;
+    private final Customer CUSTOMER;
     private Account account;
-    private ArrayList<Account> accountList;
+    private final ArrayList<Account> ACCOUNT_LIST;
     
     public ShowAccounts(Customer c) {
         this.LOGIC = Logic.getInstance();
-        this.customer = c;
-        this.accountList = this.customer.getACCOUNTS();
+        this.CUSTOMER = c;
+        this.ACCOUNT_LIST = this.CUSTOMER.getACCOUNTS();
         this.setTitle("Accounts Overview");
         initComponents();
-        lblHeadline.setText("Showing accounts for " + this.customer.getFullName());
+        lblHeadline.setText("Showing accounts for " + this.CUSTOMER.getFullName());
         setAccounts();
         this.addWindowListener(new WindowAdapter() {
+            @Override
             public void windowClosing(WindowEvent evt) {
                 onExit();
             }
@@ -40,7 +41,7 @@ public class ShowAccounts extends javax.swing.JFrame {
     }
     
     public void setAccounts() {
-        for (Account a : accountList) {
+        for (Account a : ACCOUNT_LIST) {
             cbxAccounts.addItem(a.toString());
         }
     }
@@ -208,7 +209,7 @@ public class ShowAccounts extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbxAccountsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxAccountsActionPerformed
-        this.account = this.accountList.get(cbxAccounts.getSelectedIndex());
+        this.account = this.ACCOUNT_LIST.get(cbxAccounts.getSelectedIndex());
         setFields();
     }//GEN-LAST:event_cbxAccountsActionPerformed
 
