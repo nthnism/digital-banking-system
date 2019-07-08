@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="LogicAndClasses">
+  <ClassDiagramComponents>
+    <Class name="Customer" package="LogicAndClasses" visibility="public" xPosition="8.0" yPosition="615.0">
+      <Fields>
+        <Field name="CUSTOMER_ID" type="int" visibility="private" isFinal="true"/>
+        <Field name="title" type="String" visibility="private"/>
+        <Field name="firstName" type="String" visibility="private"/>
+        <Field name="lastName" type="String" visibility="private"/>
+        <Field name="CREATED_AT" type="LocalDate" visibility="private" isFinal="true"/>
+        <Field name="ACCOUNTS" type="ArrayList&lt;Account&gt;" visibility="private" isFinal="true"/>
+        <Field name="SPECIAL_CHARS_OR_NUMBERS" type="Pattern" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="customerID"/>
+          <Argument type="String" name="title"/>
+          <Argument type="String" name="firstName"/>
+          <Argument type="String" name="lastName"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setFirstName" returnType="void" visibility="public">
+          <Argument type="String" name="firstName"/>
+        </Method>
+        <Method name="setLastName" returnType="void" visibility="public">
+          <Argument type="String" name="lastName"/>
+        </Method>
+        <Method name="verifyEligibility" returnType="void" visibility="public"/>
+        <Method name="getFullName" returnType="String" visibility="public"/>
+        <Method name="addAccount" returnType="void" visibility="public">
+          <Argument type="Account" name="acc"/>
+        </Method>
+        <Method name="getCUSTOMER_ID" returnType="int" visibility="public"/>
+        <Method name="getFirstName" returnType="String" visibility="public"/>
+        <Method name="getLastName" returnType="String" visibility="public"/>
+        <Method name="getTitle" returnType="String" visibility="public"/>
+        <Method name="getCREATED_AT" returnType="LocalDate" visibility="public"/>
+        <Method name="setTitle" returnType="void" visibility="public">
+          <Argument type="String" name="title"/>
+        </Method>
+        <Method name="getACCOUNTS" returnType="ArrayList&lt;Account&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Logic" package="LogicAndClasses" visibility="public" xPosition="8.0" yPosition="9.0">
+      <Fields>
+        <Field name="instance" type="Logic" visibility="private" isStatic="true"/>
+        <Field name="CUSTOMERS" type="ArrayList&lt;Customer&gt;" visibility="private" isFinal="true"/>
+        <Field name="ACCOUNTS" type="ArrayList&lt;Account&gt;" visibility="private" isFinal="true"/>
+        <Field name="TRANSACTIONS" type="ArrayList&lt;Transaction&gt;" visibility="private" isFinal="true"/>
+        <Field name="SPECIAL_CHARS_OR_NUMBERS" type="Pattern" visibility="private" isFinal="true"/>
+        <Field name="CHARS_OR_SPACES" type="Pattern" visibility="private" isFinal="true"/>
+        <Field name="nextCustomerId" type="int" visibility="private"/>
+        <Field name="nextAccountId" type="int" visibility="private"/>
+        <Field name="nextTransactionId" type="int" visibility="private"/>
+        <Field name="editable" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="private"/>
+      </Constructors>
+      <Methods>
+        <Method name="getInstance" returnType="Logic" visibility="public" isStatic="true"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+        <Method name="validateText" returnType="void" visibility="public">
+          <Argument type="String" name="input"/>
+          <Argument type="String" name="fieldName"/>
+        </Method>
+        <Method name="validateNumber" returnType="void" visibility="public">
+          <Argument type="String" name="input"/>
+          <Argument type="String" name="fieldName"/>
+        </Method>
+        <Method name="createCustomer" returnType="Customer" visibility="public">
+          <Argument type="String" name="title"/>
+          <Argument type="String" name="firstName"/>
+          <Argument type="String" name="lastName"/>
+        </Method>
+        <Method name="createAccount" returnType="Account" visibility="public">
+          <Argument type="String" name="accountType"/>
+          <Argument type="Customer" name="owner"/>
+          <Argument type="double" name="initialDeposit"/>
+        </Method>
+        <Method name="createTransaction" returnType="Transaction" visibility="public">
+          <Argument type="String" name="transactionType"/>
+          <Argument type="double" name="sum"/>
+          <Argument type="Account" name="target"/>
+          <Argument type="String" name="additionalInfo"/>
+        </Method>
+        <Method name="createTransaction" returnType="Transaction" visibility="public">
+          <Argument type="String" name="transactionType"/>
+          <Argument type="double" name="sum"/>
+          <Argument type="Account" name="origin"/>
+          <Argument type="Account" name="target"/>
+          <Argument type="String" name="additionalInfo"/>
+        </Method>
+        <Method name="getCustomerById" returnType="Customer" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getCustomersByName" returnType="ArrayList&lt;Customer&gt;" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getAccountById" returnType="Account" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getNextCustomerId" returnType="String" visibility="public"/>
+        <Method name="getNextAccountId" returnType="String" visibility="public"/>
+        <Method name="getNextTransactionId" returnType="String" visibility="public"/>
+        <Method name="generateTestData" returnType="void" visibility="private"/>
+        <Method name="isEditable" returnType="boolean" visibility="public"/>
+        <Method name="setEditable" returnType="void" visibility="public">
+          <Argument type="boolean" name="editable"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Account" package="LogicAndClasses" visibility="public" isAbstract="true" xPosition="1164.0" yPosition="446.0">
+      <Fields>
+        <Field name="ACCOUNT_ID" type="int" visibility="private" isFinal="true"/>
+        <Field name="CREATED_AT" type="LocalDate" visibility="private" isFinal="true"/>
+        <Field name="accountType" type="String" visibility="private"/>
+        <Field name="balance" type="double" visibility="protected"/>
+        <Field name="debitInterest" type="double" visibility="protected"/>
+        <Field name="creditInterest" type="double" visibility="protected"/>
+        <Field name="minimumDeposit" type="double" visibility="protected"/>
+        <Field name="overdraftFacility" type="double" visibility="protected"/>
+        <Field name="dailyLimit" type="double" visibility="protected"/>
+        <Field name="owners" type="ArrayList&lt;Customer&gt;" visibility="protected"/>
+        <Field name="transactions" type="ArrayList&lt;Transaction&gt;" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="accountID"/>
+          <Argument type="String" name="accountType"/>
+          <Argument type="Customer" name="owner"/>
+          <Argument type="double" name="sum"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="validateSum" returnType="void" visibility="protected">
+          <Argument type="double" name="sum"/>
+        </Method>
+        <Method name="validateTransactionSum" returnType="void" visibility="protected">
+          <Argument type="double" name="sum"/>
+        </Method>
+        <Method name="modifyBalanceBy" returnType="void" visibility="public">
+          <Argument type="double" name="sum"/>
+        </Method>
+        <Method name="setDefaults" returnType="void" visibility="protected"/>
+        <Method name="validateInitialDeposit" returnType="void" visibility="public">
+          <Argument type="double" name="sum"/>
+        </Method>
+        <Method name="getBalanceHistory" returnType="ArrayList&lt;Double&gt;" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getACCOUNT_ID" returnType="int" visibility="public"/>
+        <Method name="getBalance" returnType="double" visibility="public"/>
+        <Method name="getAccountType" returnType="String" visibility="public"/>
+        <Method name="setAccountType" returnType="void" visibility="public">
+          <Argument type="String" name="accountType"/>
+        </Method>
+        <Method name="getDebitInterest" returnType="double" visibility="public"/>
+        <Method name="setDebitInterest" returnType="void" visibility="public">
+          <Argument type="double" name="debitInterest"/>
+        </Method>
+        <Method name="getCreditInterest" returnType="double" visibility="public"/>
+        <Method name="setCreditInterest" returnType="void" visibility="public">
+          <Argument type="double" name="creditInterest"/>
+        </Method>
+        <Method name="getMinimumDeposit" returnType="double" visibility="public"/>
+        <Method name="setMinimumDeposit" returnType="void" visibility="public">
+          <Argument type="double" name="minimumDeposit"/>
+        </Method>
+        <Method name="getOverdraftFacility" returnType="double" visibility="public"/>
+        <Method name="setOverdraftFacility" returnType="void" visibility="public">
+          <Argument type="double" name="sum"/>
+        </Method>
+        <Method name="getDailyLimit" returnType="double" visibility="public"/>
+        <Method name="setDailyLimit" returnType="void" visibility="public">
+          <Argument type="double" name="dailyLimit"/>
+        </Method>
+        <Method name="getCREATED_AT" returnType="LocalDate" visibility="public"/>
+        <Method name="getOwners" returnType="ArrayList&lt;Customer&gt;" visibility="public"/>
+        <Method name="getTransactions" returnType="ArrayList&lt;Transaction&gt;" visibility="public"/>
+        <Method name="addTransaction" returnType="void" visibility="public">
+          <Argument type="Transaction" name="t"/>
+        </Method>
+        <Method name="addOwner" returnType="void" visibility="public">
+          <Argument type="Customer" name="c"/>
+        </Method>
+        <Method name="removeOwner" returnType="void" visibility="public">
+          <Argument type="Customer" name="c"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="StudentGiroAccount" package="LogicAndClasses" visibility="public" xPosition="375.0" yPosition="1317.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="accountID"/>
+          <Argument type="String" name="accountType"/>
+          <Argument type="Customer" name="owner"/>
+          <Argument type="double" name="sum"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setDefaults" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="SavingsAccount" package="LogicAndClasses" visibility="public" xPosition="1122.0" yPosition="1317.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="accountID"/>
+          <Argument type="String" name="accountType"/>
+          <Argument type="Customer" name="owner"/>
+          <Argument type="double" name="sum"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setDefaults" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="StandardGiroAccount" package="LogicAndClasses" visibility="public" xPosition="375.0" yPosition="1056.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="accountID"/>
+          <Argument type="String" name="accountType"/>
+          <Argument type="Customer" name="owner"/>
+          <Argument type="double" name="sum"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setDefaults" returnType="void" visibility="protected"/>
+        <Method name="setOverdraftFacility" returnType="void" visibility="public"/>
+        <Method name="setMinimumDeposit" returnType="void" visibility="public">
+          <Argument type="double" name="minimumDeposit"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Transaction" package="LogicAndClasses" visibility="public" xPosition="907.0" yPosition="9.0">
+      <Fields>
+        <Field name="TRANSACTION_ID" type="int" visibility="private" isFinal="true"/>
+        <Field name="SUM" type="double" visibility="private" isFinal="true"/>
+        <Field name="TIME_STAMP" type="LocalDateTime" visibility="private" isFinal="true"/>
+        <Field name="TARGET" type="Account" visibility="private" isFinal="true"/>
+        <Field name="ORIGIN" type="String" visibility="private" isFinal="true"/>
+        <Field name="TRANSACTION_TYPE" type="String" visibility="private" isFinal="true"/>
+        <Field name="ADDITIONAL_INFO" type="String" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="transactionId"/>
+          <Argument type="String" name="transactionType"/>
+          <Argument type="double" name="sum"/>
+          <Argument type="Account" name="target"/>
+          <Argument type="String" name="originId"/>
+          <Argument type="String" name="additionalInfo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getTRANSACTION_ID" returnType="int" visibility="public"/>
+        <Method name="getSUM" returnType="double" visibility="public"/>
+        <Method name="getTIME_STAMP" returnType="LocalDateTime" visibility="public"/>
+        <Method name="getTARGET" returnType="Account" visibility="public"/>
+        <Method name="getORIGIN" returnType="String" visibility="public"/>
+        <Method name="getTRANSACTION_TYPE" returnType="String" visibility="public"/>
+        <Method name="getADDITIONAL_INFO" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="LogicAndClasses.SavingsAccount" target="LogicAndClasses.Account"/>
+    <HasRelation name="ACCOUNTS" source="LogicAndClasses.Customer" target="LogicAndClasses.Account" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Account&gt;"/>
+    <IsRelation name="is" source="LogicAndClasses.StudentGiroAccount" target="LogicAndClasses.StandardGiroAccount"/>
+    <HasRelation name="owners" source="LogicAndClasses.Account" target="LogicAndClasses.Customer" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Customer&gt;"/>
+    <HasRelation name="CUSTOMERS" source="LogicAndClasses.Logic" target="LogicAndClasses.Customer" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Customer&gt;"/>
+    <IsRelation name="is" source="LogicAndClasses.StandardGiroAccount" target="LogicAndClasses.Account"/>
+    <HasRelation name="transactions" source="LogicAndClasses.Account" target="LogicAndClasses.Transaction" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Transaction&gt;"/>
+    <HasRelation name="TARGET" source="LogicAndClasses.Transaction" target="LogicAndClasses.Account" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="TRANSACTIONS" source="LogicAndClasses.Logic" target="LogicAndClasses.Transaction" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Transaction&gt;"/>
+    <HasRelation name="ACCOUNTS" source="LogicAndClasses.Logic" target="LogicAndClasses.Account" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Account&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
